@@ -1,8 +1,9 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-
+import { BrowserModule } from '@angular/platform-browser';
+import { ApiService } from './api.service';
+import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
+import {MatButtonModule} from '@angular/material/button';
 
 
 @NgModule({
@@ -10,9 +11,9 @@ import { AppComponent } from './app.component';
     AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule, HttpModule, MatButtonModule
   ],
-  providers: [],
+  providers: [ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
