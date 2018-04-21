@@ -3,15 +3,16 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ApiService } from './api.service';
 import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
-import {MatButtonModule} from '@angular/material/button';
-
+import {MatButtonModule, MatCardModule} from '@angular/material';
+import { MessagesComponent } from './messages.component';
 
 @NgModule({
-  declarations: [
-    AppComponent
+  declarations: [ 
+    AppComponent,
+    MessagesComponent
   ],
   imports: [
-    BrowserModule, HttpModule, MatButtonModule
+    BrowserModule, HttpModule, MatButtonModule, MatCardModule
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]

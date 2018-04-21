@@ -7,12 +7,5 @@ import { ApiService } from './api.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
-
-  constructor(private apiService: ApiService){}
-
-  ngOnInit() {
-    this.apiService.getMessage();
-  }
 
 }
