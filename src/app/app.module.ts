@@ -9,16 +9,20 @@ import { MatButtonModule, MatCardModule, MatToolbarModule, MatInputModule } from
 import { FormsModule } from '@angular/forms';
 import { MessagesComponent } from './messages.component';
 import { RegisterComponent } from './register.component';
+import { LoginComponent } from './login.component';
 
 const routes = [
-  {path:"register", component:RegisterComponent}
+  {path:"register", component:RegisterComponent},
+  {path:"login", component:LoginComponent}
+
 ]
 
 @NgModule({
   declarations: [ 
     AppComponent,
     MessagesComponent,
-    RegisterComponent
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
