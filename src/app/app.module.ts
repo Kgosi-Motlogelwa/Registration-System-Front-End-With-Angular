@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ApiService } from './api.service';
 import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
-import {MatButtonModule, MatCardModule} from '@angular/material';
+import {MatButtonModule, MatCardModule, MatToolbarModule} from '@angular/material';
 import { MessagesComponent } from './messages.component';
 
 @NgModule({
@@ -12,7 +12,7 @@ import { MessagesComponent } from './messages.component';
     MessagesComponent
   ],
   imports: [
-    BrowserModule, HttpModule, MatButtonModule, MatCardModule
+    BrowserModule, HttpModule, MatButtonModule, MatCardModule,MatToolbarModule
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]

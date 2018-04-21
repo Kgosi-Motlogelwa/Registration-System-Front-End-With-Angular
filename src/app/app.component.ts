@@ -3,8 +3,13 @@ import { ApiService } from './api.service';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  template: `
+  <mat-toolbar>
+    Registertation App
+    <span style="flex: 1 1 auto"></span>
+    <button mat-button>Register</button>
+  </mat-toolbar>
+  `,
 })
 export class AppComponent {
 
