@@ -18,7 +18,7 @@ import { ApiService } from './api.service';
             <mat-form-field class="example-full-width">
                 <input matInput [(ngModel)]="loginData.password" name="password" placeholder="password" type="Password">
             </mat-form-field>
-            <button mat-raised-button (click)="Post()">Register</button>
+            <button mat-raised-button (click)="Post()">Login</button>
         </form> 
     </mat-card-content>
   </mat-card>
@@ -28,6 +28,7 @@ export class LoginComponent {
     loginData = {}
 
     constructor(private apiService: ApiService){}
+
     Post() {
         this.apiService.loginUser(this.loginData);
     }
