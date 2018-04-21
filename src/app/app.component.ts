@@ -7,8 +7,9 @@ import { ApiService } from './api.service';
   <mat-toolbar>
     Registertation App
     <span style="flex: 1 1 auto"></span>
-    <button mat-button>Register</button>
+    <button mat-button routerLink="/register">Register</button>
   </mat-toolbar>
+  <router-outlet></router-outlet>
   `,
 })
 export class AppComponent {
