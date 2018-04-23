@@ -5,18 +5,20 @@ import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
-import { MatButtonModule, MatCardModule, MatToolbarModule, MatInputModule } from '@angular/material';
+import { MatButtonModule, MatCardModule, MatToolbarModule, MatInputModule, MatListModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
 import { MessagesComponent } from './messages.component';
 import { RegisterComponent } from './register.component';
 import { LoginComponent } from './login.component';
 import { UsersComponent } from './users.component';
+import { ProfileComponent } from './profile.component';
+
 
 const routes = [
   {path:"register", component:RegisterComponent},
   {path:"login", component:LoginComponent},
   {path:"users", component:UsersComponent},
-  {path:"profile/:id", component:UsersComponent},
+  {path:"profile/:id", component:ProfileComponent},
 ]
 
 @NgModule({
@@ -25,7 +27,8 @@ const routes = [
     MessagesComponent,
     RegisterComponent,
     LoginComponent,
-    UsersComponent
+    UsersComponent,
+    ProfileComponent
     
   ],
   imports: [
@@ -37,7 +40,8 @@ const routes = [
     RouterModule.forRoot(routes),
     BrowserAnimationsModule,
     MatInputModule,
-    FormsModule
+    FormsModule,
+    MatListModule
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]
