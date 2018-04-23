@@ -7,12 +7,20 @@ export class ApiService {
     constructor(private http: Http){}
     
     messages = []
+    users = []
 
     getMessage() {
         this.http.get('http://localhost:3000/posts').subscribe(res =>{
             this.messages = res.json()
         })
     }
+
+    getUsers() {
+        this.http.get('http://localhost:3000/users').subscribe(res =>{
+            this.users = res.json()
+        })
+    }
+
 
     sendUserRegistration(regData) {
         this.http.post('http://localhost:3000/register', regData).subscribe(res =>{
@@ -25,5 +33,5 @@ export class ApiService {
             console.log(res);
             localStorage.setItem('token', res.json().token)
         })
-    }
+    };l
 }
