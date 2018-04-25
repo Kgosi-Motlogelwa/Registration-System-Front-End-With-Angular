@@ -21,6 +21,11 @@ export class ApiService {
         })
     }
 
+    getProfile(id) {
+        return this.http.get('http://localhost:3000/profile/' + id)
+    }
+
+
 
     sendUserRegistration(regData) {
         this.http.post('http://localhost:3000/register', regData).subscribe(res =>{
