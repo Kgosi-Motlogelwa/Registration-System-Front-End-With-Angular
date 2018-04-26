@@ -5,7 +5,7 @@ import { ApiService } from './api.service';
   selector: 'app-root',
   template: `
   <mat-toolbar>
-    Registertion App
+    <button mat-button routerLink="/">SocialApp</button>
     <button mat-button routerLink="/users">Users</button>
     <span style="flex: 1 1 auto"></span>
     <button mat-button routerLink="/register">Register</button>

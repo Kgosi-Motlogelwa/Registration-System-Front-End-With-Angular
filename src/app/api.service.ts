@@ -9,6 +9,8 @@ export class ApiService {
     messages = []
     users = []
 
+    path = 'http://localhost:3000/auth';
+
     getMessage() {
         this.http.get('http://localhost:3000/posts').subscribe(res =>{
             this.messages = res.json()
@@ -28,13 +30,13 @@ export class ApiService {
 
 
     sendUserRegistration(regData) {
-        this.http.post('http://localhost:3000/register', regData).subscribe(res =>{
+        this.http.post(this.path + '/register', regData).subscribe(res =>{
             
         })
     }
 
     loginUser(loginData) {
-        this.http.post('http://localhost:3000/login', loginData).subscribe(res =>{
+        this.http.post(this.path + '/login', loginData).subscribe(res =>{
             console.log(res);
             localStorage.setItem('token', res.json().token)
         })
