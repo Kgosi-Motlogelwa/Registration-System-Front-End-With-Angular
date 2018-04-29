@@ -15,7 +15,7 @@ import { ApiService } from './api.service';
             <mat-form-field style="width: 100%">
                 <textarea matInput [(ngModel)]="postMsg" name="description" placeholder="Post"></textarea>
             </mat-form-field>
-            <button mat-raised-button (click)="Post()" color="primary">Post</button>
+            <button mat-raised-button (click)="post()" color="primary">Post</button>
         </form> 
     </mat-card-content>
   </mat-card>
@@ -24,4 +24,9 @@ import { ApiService } from './api.service';
 export class PostComponent {
   constructor(private apiService: ApiService){}
 
+  postMsg = ''
+
+  post(){
+    this.apiService.postMessage({msg: this.postMsg})
+  }
 }

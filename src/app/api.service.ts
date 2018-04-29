@@ -9,34 +9,41 @@ export class ApiService {
     messages = []
     users = []
 
-    path = 'http://localhost:3000/auth';
+    path = 'http://localhost:3000'
+    authPath = 'http://localhost:3000/auth';
 
     getMessage() {
-        this.http.get('http://localhost:3000/posts').subscribe(res =>{
+        this.http.get(this.path +'/posts').subscribe(res =>{
             this.messages = res.json()
         })
     }
 
+
+    postMessage(message) {
+        this.http.post(this.path +'/post', message).subscribe(res =>{
+            this.messages = res.json()
+        })
+    }
     getUsers() {
-        this.http.get('http://localhost:3000/users').subscribe(res =>{
+        this.http.get(this.path +'/users').subscribe(res =>{
             this.users = res.json()
         })
     }
 
     getProfile(id) {
-        return this.http.get('http://localhost:3000/profile/' + id)
+        return this.http.get(this.path +'/profile/' + id)
     }
 
 
 
     sendUserRegistration(regData) {
-        this.http.post(this.path + '/register', regData).subscribe(res =>{
+        this.http.post(this.authPath + '/register', regData).subscribe(res =>{
             
         })
     }
 
     loginUser(loginData) {
-        this.http.post(this.path + '/login', loginData).subscribe(res =>{
+        this.http.post(this.authPath + '/login', loginData).subscribe(res =>{
             console.log(res);
             localStorage.setItem('token', res.json().token)
         })
