@@ -12,8 +12,8 @@ export class ApiService {
     path = 'http://localhost:3000'
     authPath = 'http://localhost:3000/auth';
 
-    getMessage() {
-        this.http.get(this.path +'/posts').subscribe(res =>{
+    getMessage(userId) {
+        this.http.get(this.path +'/posts/' + userId).subscribe(res =>{
             this.messages = res.json()
         })
     }

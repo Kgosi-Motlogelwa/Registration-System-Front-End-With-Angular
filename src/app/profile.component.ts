@@ -20,6 +20,16 @@ import { ActivatedRoute } from '@angular/router';
     </mat-list>
     </mat-card-content>
   </mat-card>
+  <mat-card>
+    <mat-card-header>
+        <mat-card-title>
+            <h3>Posts </h3>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <messages></messages>
+    </mat-card-content>
+  </mat-card>
   `,
 })
 export class ProfileComponent {
