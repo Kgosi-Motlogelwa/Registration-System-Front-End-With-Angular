@@ -1,10 +1,10 @@
-import { Http } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable()
 export class ApiService {
 
-    constructor(private http: Http){}
+    constructor(private http: HttpClient){}
     
     messages = []
     users = []
@@ -13,20 +13,20 @@ export class ApiService {
     authPath = 'http://localhost:3000/auth';
 
     getMessage(userId) {
-        this.http.get(this.path +'/posts/' + userId).subscribe(res =>{
-            this.messages = res.json()
+        this.http.get<any>(this.path +'/posts/' + userId).subscribe(res =>{
+            this.messages = res;
         })
     }
 
 
     postMessage(message) {
-        this.http.post(this.path +'/post', message).subscribe(res =>{
-            this.messages = res.json()
+        this.http.post<any>(this.path +'/post', message).subscribe(res =>{
+            this.messages = res
         })
     }
     getUsers() {
-        this.http.get(this.path +'/users').subscribe(res =>{
-            this.users = res.json()
+        this.http.get<any>(this.path +'/users').subscribe(res =>{
+            this.users = res
         })
     }
 
@@ -34,18 +34,14 @@ export class ApiService {
         return this.http.get(this.path +'/profile/' + id)
     }
 
-
-
     sendUserRegistration(regData) {
-        this.http.post(this.authPath + '/register', regData).subscribe(res =>{
-            
+        this.http.post(this.authPath + '/register', regData).subscribe(res =>{         
         })
     }
 
     loginUser(loginData) {
-        this.http.post(this.authPath + '/login', loginData).subscribe(res =>{
-            console.log(res);
-            localStorage.setItem('token', res.json().token)
+        this.http.post<any>(this.authPath + '/login', loginData).subscribe(res =>{
+            localStorage.setItem('token', res.token)
         })
     };l
 }
