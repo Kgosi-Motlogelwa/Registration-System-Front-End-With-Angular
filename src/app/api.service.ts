@@ -26,6 +26,9 @@ export class ApiService {
         return !!localStorage.getItem(this.TOKEN_KEY)
     }
 
+    logout(){
+        localStorage.removeItem(this.TOKEN_KEY);
+    }
     postMessage(message) {
         this.http.post<any>(this.path +'/post', message).subscribe(res =>{
             this.messages = res

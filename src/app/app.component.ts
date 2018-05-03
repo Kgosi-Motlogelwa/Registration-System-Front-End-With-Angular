@@ -10,7 +10,7 @@ import { ApiService } from './api.service';
     <span style="flex: 1 1 auto"></span>
     <button mat-button *ngIf="!apiService.isAuthenticated" routerLink="/register">Register</button>
     <button mat-button *ngIf="!apiService.isAuthenticated" routerLink="/login">Login</button>
-    <button mat-button *ngIf="apiService.isAuthenticated" routerLink="/">Logout</button>
+    <button mat-button *ngIf="apiService.isAuthenticated" (click)="apiService.logout()" routerLink="/">Logout</button>
 
   </mat-toolbar>
   <router-outlet></router-outlet>
