@@ -8,7 +8,7 @@ export class ApiService {
     
     messages = []
     users = []
-
+    TOKEN_KEY = 'token'
     path = 'http://localhost:3000'
     authPath = 'http://localhost:3000/auth';
 
@@ -18,6 +18,13 @@ export class ApiService {
         })
     }
 
+    get token(){
+        return localStorage.getItem(this.TOKEN_KEY);
+    }
+
+    get isAuthenticated(){
+        return !!localStorage.getItem(this.TOKEN_KEY)
+    }
 
     postMessage(message) {
         this.http.post<any>(this.path +'/post', message).subscribe(res =>{
@@ -41,7 +48,8 @@ export class ApiService {
 
     loginUser(loginData) {
         this.http.post<any>(this.authPath + '/login', loginData).subscribe(res =>{
-            localStorage.setItem('token', res.token)
+            console.log(res);
+            localStorage.setItem(this.TOKEN_KEY, res.token)
         })
-    };l
+    };
 }
