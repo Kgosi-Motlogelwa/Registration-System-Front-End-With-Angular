@@ -1,10 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class ApiService {
 
-    constructor(private http: HttpClient){}
+    constructor(private http: HttpClient, private route: Router){}
     
     messages = []
     users = []
@@ -45,8 +46,15 @@ export class ApiService {
     }
 
     sendUserRegistration(regData) {
-        this.http.post(this.authPath + '/register', regData).subscribe(res =>{         
+        this.http.post<any>(this.authPath + '/register', regData).subscribe(res =>{ 
+            console.log(res) 
+            localStorage.setItem(this.TOKEN_KEY, res.token)       
         })
+        if(this.isAuthenticated){
+            this.route.navigateByUrl("/")
+        }else{
+            console.log("Registration Failed")
+        }
     }
 
     loginUser(loginData) {
