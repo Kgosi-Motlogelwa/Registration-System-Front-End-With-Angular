@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { environment } from '../environments/environment'
 
 @Injectable()
 export class ApiService {
@@ -10,8 +11,8 @@ export class ApiService {
     messages = []
     users = []
     TOKEN_KEY = 'token'
-    path = 'http://localhost:3000'
-    authPath = 'http://localhost:3000/auth';
+    path = environment.path;
+    authPath = environment.path + '/auth';
 
     getMessage(userId) {
         this.http.get<any>(this.path +'/posts/' + userId).subscribe(res =>{
