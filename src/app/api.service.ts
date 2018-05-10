@@ -49,19 +49,25 @@ export class ApiService {
     sendUserRegistration(regData) {
         this.http.post<any>(this.authPath + '/register', regData).subscribe(res =>{ 
             console.log(res) 
-            localStorage.setItem(this.TOKEN_KEY, res.token)       
+            localStorage.setItem(this.TOKEN_KEY, res.token)  
+            if(this.isAuthenticated){
+                this.route.navigateByUrl("/")
+            }else{
+                console.log("Registration Failed")
+            }     
         })
-        if(this.isAuthenticated){
-            this.route.navigateByUrl("/")
-        }else{
-            console.log("Registration Failed")
-        }
+        
     }
 
     loginUser(loginData) {
         this.http.post<any>(this.authPath + '/login', loginData).subscribe(res =>{
             console.log(res);
             localStorage.setItem(this.TOKEN_KEY, res.token)
+            if(this.isAuthenticated){
+                this.route.navigateByUrl("/")
+            }else{
+                console.log("Registration Failed")
+            }   
         })
     };
 }
